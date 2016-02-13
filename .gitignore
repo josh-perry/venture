@@ -73,7 +73,7 @@ db.sqlite3
 media
 
 ### Secret key ###
-/venture/secret_key.py
+secrets.py
 
 ### Static files ###
 /static

@@ -1,4 +1,1 @@
 django==1.9.1
-markdown
-Pillow
-gunicorn

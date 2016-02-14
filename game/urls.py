@@ -4,5 +4,6 @@ from django.contrib import admin
 from game import views
 
 urlpatterns = [
-    url(r'^$', views.RootView.as_view())
+    url(r'^$', views.RootView.as_view()),
+    url(r'room/', views.RoomView.as_view())
 ]

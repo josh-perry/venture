@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Room(models.Model):
@@ -22,3 +23,11 @@ class Exit(models.Model):
 
     name = models.CharField(max_length=255)
     to_room = models.OneToOneField(Room, blank=True, null=True)
+
+
+class Player(models.Model):
+    def __str__(self):
+        return self.user.username
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    current_room = models.ForeignKey(Room)

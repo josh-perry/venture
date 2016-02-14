@@ -25,6 +25,10 @@ class RoomView(TemplateView):
         room = player.current_room
         resp = "<h1>{0}</h1>{1}".format(room.name, room.description)
 
+        resp += "<h2>Exits</h2>"
+        for exit in room.exits.all():
+            resp += exit.name + "<br/>"
+
         return HttpResponse(resp)
 
     def post(self, request, **kwargs):

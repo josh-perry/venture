@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, render_to_response, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -33,3 +33,11 @@ class RoomView(TemplateView):
 
     def post(self, request, **kwargs):
         pass
+
+
+class Command(View):
+    def get(self, request, **kwargs):
+        return Http404()
+
+    def post(self, request, **kwargs):
+        command = request.POST.get("request", None)
